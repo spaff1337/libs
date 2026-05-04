@@ -1,2 +1,2 @@
 # string_view
-a basic implementation of string view in C
+stb single header style library for string view in pure C.
