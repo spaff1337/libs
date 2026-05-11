@@ -5,7 +5,7 @@
 #include <stdbool.h>  // for bool, true and false
 
 #define SV_FMT "%.*s"
-#define SV_ARGS(sv) (sv).length, (sv).data
+#define SV_ARGS(sv) (int)(sv).length, (sv).data
 
 typedef struct
 {
@@ -13,7 +13,7 @@ typedef struct
 	size_t length;
 } string_view_t;
 
-#ifndef STRING_VIEW_IMPLEMENTAION
+#ifndef STRING_VIEW_IMPL
 
 string_view_t sv_create(const char* str);
 string_view_t sv_create_sub(const char* str, size_t length);
@@ -34,7 +34,7 @@ string_view_t sv_substr(string_view_t sv, size_t pos, size_t count);
 string_view_t sv_clip_prefix(string_view_t sv, size_t count);
 string_view_t sv_clip_suffix(string_view_t sv, size_t count);
 
-#else // STRING_VIEW_IMPLEMENTAION
+#else // STRING_VIEW_IMPL
 
 #include <stdio.h>    // for snprintf
 #include <string.h>   // for strlen
@@ -172,6 +172,6 @@ string_view_t sv_clip_suffix(string_view_t sv, size_t count) {
 
 	return (string_view_t){.data = sv.data, .length = sv.length - count};
 }
-#endif // STRING_VIEW_IMPLEMENTAION
+#endif // STRING_VIEW_IMPL
 
 #endif // STRING_VIEW_H
