@@ -1044,6 +1044,7 @@
 
 #define __COMMA
 #define __ARG_TYPES(_fn, ...)                              \
+    _fn(BOOL,     _Bool,               "u",    ...)__COMMA \
     _fn(FLOAT,    float,               "f",    ...)__COMMA \
     _fn(DOUBLE,   double,              "f",    ...)__COMMA \
     _fn(CSTR,     const char*,         "s",    ...)__COMMA \
